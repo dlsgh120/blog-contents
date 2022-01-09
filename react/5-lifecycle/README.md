@@ -172,4 +172,4 @@ LifeCycle에 대해 정확히 짚고 넘어가시면, 컴포넌트를 만들때,
 
 # 블로그 링크
 
-> https://dlsgh120.tistory.com/37
+> https://dlsgh120.tistory.com/39
