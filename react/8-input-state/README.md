@@ -8,25 +8,21 @@
 
 다음과 같이, src/components/FormInput.js 파일을 만들어 컴포넌트를 생성해보자.
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:""
-    }
-    render(){
-        return(
-            <form>
-                <input type="text"
-                    value={this.state.name}
-                />
-                <div>
-                    {this.state.name}
-                </div>
-            </form>
-        );
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+  };
+  render() {
+    return (
+      <form>
+        <input type="text" value={this.state.name} />
+        <div>{this.state.name}</div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
@@ -48,32 +44,31 @@ state를 확인해보면, 렌더링 되기전에 name이라는 이름의 빈 값
 
 다음과 같이 코드를 추가해 보자.
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:""
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+  };
 
-    //추가
-    changeHandler = (e) =>{
-           this.setState({name:e.target.value});
-    }
-    render(){
-        return(
-            <form>
-                <input type="text"
-                    value={this.state.name}
-                    placeholder="이름을 입력하세요."
-                    onChange={this.changeHandler} //추가
-                />
-                <div>
-                    입력 값: {this.state.name}
-                </div>
-            </form>
-        );
-    }
+  //추가
+  changeHandler = (e) => {
+    this.setState({ name: e.target.value });
+  };
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.name}
+          placeholder="이름을 입력하세요."
+          onChange={this.changeHandler} //추가
+        />
+        <div>입력 값: {this.state.name}</div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
@@ -95,41 +90,44 @@ export default FormInput;
 만약 input이 여러개 일때는 어떻게 해야 할까?  
 다음 과 같이 코드를 작성해 보자.
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:"",
-        email:""
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+    email: "",
+  };
 
-    changeHandler = (e) =>{
-        this.setState({[e.target.name]:e.target.value})
-    }
-    render(){
-        return(
-            <form>
-                <input type="text"
-                    value={this.state.name}
-                    placeholder="이름을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="name"
-                />
-                <input type="text"
-                    value={this.state.email}
-                    placeholder="이메일을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="email"
-                />
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.name}
+          placeholder="이름을 입력하세요."
+          onChange={this.changeHandler}
+          name="name"
+        />
+        <input
+          type="text"
+          value={this.state.email}
+          placeholder="이메일을 입력하세요."
+          onChange={this.changeHandler}
+          name="email"
+        />
 
-                <div>
-                    이름 : {this.state.name}<br />
-                    이메일 : {this.state.email}
-                </div>
-            </form>
-        );
-    }
+        <div>
+          이름 : {this.state.name}
+          <br />
+          이메일 : {this.state.email}
+        </div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
@@ -139,42 +137,45 @@ export default FormInput;
 
 아마도, 다음 코드와 같이, 각 인풋마다 다른 이벤트 핸들러 함수를 만들고자 하는 사람이 있을 수 도 있다.
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:"",
-        email:""
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+    email: "",
+  };
 
-    changeNameHandler = (e) =>{
-           this.setState({name: e.target.value});
-    }
-    changeEmailHandler = (e) =>{
-        this.setState({email: e.target.value});
-    }
-    render(){
-        return(
-            <form>
-                <input type="text"
-                    value={this.state.name}
-                    placeholder="이름을 입력하세요."
-                    onChange={this.changeNameHandler}
-                />
-                <input type="text"
-                    value={this.state.email}
-                    placeholder="이메일을 입력하세요."
-                    onChange={this.changeEmailHandler}
-                />
+  changeNameHandler = (e) => {
+    this.setState({ name: e.target.value });
+  };
+  changeEmailHandler = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.name}
+          placeholder="이름을 입력하세요."
+          onChange={this.changeNameHandler}
+        />
+        <input
+          type="text"
+          value={this.state.email}
+          placeholder="이메일을 입력하세요."
+          onChange={this.changeEmailHandler}
+        />
 
-                <div>
-                    이름 : {this.state.name}<br />
-                    이메일 : {this.state.email}
-                </div>
-            </form>
-        );
-    }
+        <div>
+          이름 : {this.state.name}
+          <br />
+          이메일 : {this.state.email}
+        </div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
@@ -197,46 +198,49 @@ export default FormInput;
 
 #### src/components/FormInput
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:"",
-        email:""
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+    email: "",
+  };
 
-    changeHandler = (e) =>{
-        this.setState({[e.target.name]:e.target.value})
-    }
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    // 추가
-    submitHandler = () =>{
-        console.log(this.state.name, this.state.email);
-    }
-    render(){
-        return(
-            <form onSubmit={this.submitHandler}>
-                <input type="text"
-                    value={this.state.name}
-                    placeholder="이름을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="name"
-                />
-                <input type="text"
-                    value={this.state.email}
-                    placeholder="이메일을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="email"
-                />
-                <button type="submit">등록</button> //추가
-                <div>
-                    이름 : {this.state.name}<br />
-                    이메일 : {this.state.email}
-                </div>
-            </form>
-        );
-    }
+  // 추가
+  submitHandler = () => {
+    console.log(this.state.name, this.state.email);
+  };
+  render() {
+    return (
+      <form onSubmit={this.submitHandler}>
+        <input
+          type="text"
+          value={this.state.name}
+          placeholder="이름을 입력하세요."
+          onChange={this.changeHandler}
+          name="name"
+        />
+        <input
+          type="text"
+          value={this.state.email}
+          placeholder="이메일을 입력하세요."
+          onChange={this.changeHandler}
+          name="email"
+        />
+        <button type="submit">등록</button> //추가
+        <div>
+          이름 : {this.state.name}
+          <br />
+          이메일 : {this.state.email}
+        </div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
@@ -250,7 +254,7 @@ export default FormInput;
 
 다음과 같이 추가해보자.
 
-```
+```js
 import React from "react";
 
 class FormInput extends React.Component{
@@ -286,20 +290,19 @@ e.preventDefault() 함수를 추가하였다면, 다시한번 브라우저에서
 
 #### src/App
 
-```
+```js
 import React from "react";
 import FormInput from "./components/FormInput";
 
-class App extends React.Component{
-
+class App extends React.Component {
   // 추가
-  createHandler = (userData) =>{
-      console.log(userData);
-  }
-  render(){
-    return(
+  createHandler = (userData) => {
+    console.log(userData);
+  };
+  render() {
+    return (
       <div className="App">
-        <FormInput createHandler={this.createHandler}/> //변경
+        <FormInput createHandler={this.createHandler} /> //변경
       </div>
     );
   }
@@ -310,46 +313,49 @@ export default App;
 
 작성이 완료 되었다면, FormInput 컴포넌트에서 onSubmit 이벤트를 설정 한다.
 
-```
+```js
 import React from "react";
 
-class FormInput extends React.Component{
-    state = {
-        name:"",
-        email:""
-    }
+class FormInput extends React.Component {
+  state = {
+    name: "",
+    email: "",
+  };
 
-    changeHandler = (e) =>{
-        this.setState({[e.target.name]:e.target.value})
-    }
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    submitHandler = (e) =>{
-        e.preventDefault();
-        this.props.createHandler(this.state); //추가
-    }
-    render(){
-        return(
-            <form onSubmit={this.submitHandler}>
-                <input type="text"
-                    value={this.state.name}
-                    placeholder="이름을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="name"
-                />
-                <input type="text"
-                    value={this.state.email}
-                    placeholder="이메일을 입력하세요."
-                    onChange={this.changeHandler}
-                    name="email"
-                />
-                <button type="submit">등록</button>
-                <div>
-                    이름 : {this.state.name}<br />
-                    이메일 : {this.state.email}
-                </div>
-            </form>
-        );
-    }
+  submitHandler = (e) => {
+    e.preventDefault();
+    this.props.createHandler(this.state); //추가
+  };
+  render() {
+    return (
+      <form onSubmit={this.submitHandler}>
+        <input
+          type="text"
+          value={this.state.name}
+          placeholder="이름을 입력하세요."
+          onChange={this.changeHandler}
+          name="name"
+        />
+        <input
+          type="text"
+          value={this.state.email}
+          placeholder="이메일을 입력하세요."
+          onChange={this.changeHandler}
+          name="email"
+        />
+        <button type="submit">등록</button>
+        <div>
+          이름 : {this.state.name}
+          <br />
+          이메일 : {this.state.email}
+        </div>
+      </form>
+    );
+  }
 }
 
 export default FormInput;
