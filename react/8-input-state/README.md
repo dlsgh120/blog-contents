@@ -300,6 +300,7 @@ class App extends React.Component{
     return(
       <div className="App">
         <FormInput createHandler={this.createHandler}/> //변경
+      </div>
     );
   }
 }
