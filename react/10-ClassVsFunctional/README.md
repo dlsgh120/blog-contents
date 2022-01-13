@@ -36,7 +36,7 @@ function FunctionalComponent(props) {
   return <div>{props.name}</div>;
 }
 
-export default ClassComponent;
+export default FunctionalComponent;
 ```
 
 위의 방식 말고 ES6의 문법인 Arrow Function을 사용해서 만들 수도 있다.
@@ -48,7 +48,7 @@ const FunctionalComponent = (props) => {
   return <div>{props.name}</div>;
 };
 
-export default ClassComponent;
+export default FunctionalComponent;
 ```
 
 이와 같이 Functional Component의 기본적인 형태를 지니고 있다.
@@ -118,7 +118,7 @@ const FunctionalComponent = () => {
   );
 };
 
-export default ClassComponent;
+export default FunctionalComponent;
 ```
 
 이 코드를 보면 클래스형 컴포넌트에서 input name변경하는 부분과 동일 한 내용이다.
@@ -156,7 +156,7 @@ const FunctionalComponent = () =>{
     );
 }
 
-export default ClassComponent;
+export default FunctionalComponent;
 ```
 
 useEffect를 사용하여 위와 같이 클래스형 컴포넌트의 LifeCycle API componentDidMount 및 componentDidUpdate 와 같은 동작을 수행 할 수 있다.
