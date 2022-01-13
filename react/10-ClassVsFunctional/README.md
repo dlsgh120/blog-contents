@@ -98,7 +98,7 @@ Functional Component에서 Hook을 사용하여 ClassComponent의 lifeCycle을 �
 ```js
 import React, { useState } from "react";
 
-const ClassComponent = () => {
+const FunctionalComponent = () => {
   const [name, setName] = useState("");
 
   const changeHandler = (e) => {
@@ -141,7 +141,7 @@ useEffect는 클래스형 컴포넌의 lifeCycle API인 componentDidMount, compo
 ```js
 import React, {useState, useEffect} from "react";
 
-const ClassComponent = () =>{
+const FunctionalComponent = () =>{
     const [name, setName] = useState("");
 
     const changeHandler = (e) =>{
