@@ -323,4 +323,9 @@ removeHandler 함수가 수행될때, state의 data의 배열을 filter함수를
 기억해야하는 내용은 state는 불변성을 유지 시키기 위해, 기존 배열에 대해 push, splice, pop 등의 메서드를 사용하는 것이 아닌, 새 배열을 반환 시켜주는 concat, filter 메서드를 사용해야한다.
 
 참고: [Array.prototype.concat() - javascript](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+
 참고:[Array.prototype.filter() - javascript](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/46
