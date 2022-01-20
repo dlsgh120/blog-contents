@@ -385,3 +385,7 @@ class OtherComponent extends React.Component{
 본인의 스타일링 선호도에 따라 알맞게 사용하여 멋진 스타일을 적용해 보자.
 
 참고 : [https://velog.io/@velopert/react-component-styling](https://velog.io/@velopert/react-component-styling)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/47
