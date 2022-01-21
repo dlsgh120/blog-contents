@@ -307,3 +307,7 @@ async, await 는 자바스크립트의 비동기 처리의 문법 이다.
 API 연동을 하기전 REST API에 대한 내용을 모른다면, 반드시 그 내용을 숙지한 후에 사용하는것이 바람직하다.
 
 참고 : [https://ko.reactjs.org/docs/faq-ajax.html](https://ko.reactjs.org/docs/faq-ajax.html)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/48
