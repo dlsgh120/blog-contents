@@ -98,3 +98,7 @@ Compouted Value의 경우 특정값을 연산 해야 될 때 처리되지만, Re
 이 Mobx라이브러리를 리액트에 어떻게 활용하는지에 대해 다음 포스트에서 알아보자.
 
 참고 : [https://mobx.js.org/the-gist-of-mobx.html](https://mobx.js.org/the-gist-of-mobx.html)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/49
