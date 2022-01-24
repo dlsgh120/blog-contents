@@ -274,3 +274,7 @@ mobx를 어떻게 적용 하는지에 대해 알아보았다.
 하지만 아직 많은 곳에서 데코레이터를 많이 사용 하고 있기때문에, 데코레이터를 사용하기 위해, 어떻게 설정을 하고 사용하는지에 대해 알아 보았다.
 
 참고 : [https://mobx.js.org/enabling-decorators.html#enabling-decorators-](https://mobx.js.org/enabling-decorators.html#enabling-decorators-)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/50
