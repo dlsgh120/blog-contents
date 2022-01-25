@@ -300,3 +300,7 @@ export default Counter;
 그중 Mobx에 대한 개념, 사용법 그리고 데코레이터 및 스토어 관리 등에 대하여 알아 보았다.
 
 참고 : [Mobx 공식 홈페이지](https://mobx.js.org/README.html)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/51
