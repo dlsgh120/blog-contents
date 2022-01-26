@@ -378,3 +378,7 @@ export default Greetings;
 그렇기에 타입스크립트가 무엇인지에 대한 개념 및, 리액트에서 타입스크립트로 만들때의 장점, 그리고 타입스크립트로 리액트를 작성하는 방법 등에 대해 알아보았다.
 
 참고 : [https://create-react-app.dev/docs/adding-typescript/](https://create-react-app.dev/docs/adding-typescript/)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/52
