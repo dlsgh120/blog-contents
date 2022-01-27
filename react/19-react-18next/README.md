@@ -249,3 +249,7 @@ export default Translation;
 ### 마치며
 
 이번 포스트에서는, i18n이 무엇인지, 그리고 이 다국어를 리액트에서 어떻게 적용 하는지에 대해 간단하게 알아보았다.
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/53
