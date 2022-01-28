@@ -41,7 +41,7 @@ const Postcode: React.FC = () =>{
 export default Postcode;
 ```
 
-실행 하시기 전, DaumPostcode의 props를 살펴보자.
+실행 하기 전, DaumPostcode의 props를 살펴보자.
 
 onComplete는 DaumPostcode API를 사용할 때 반드시 사용되어야 할 필수 기능으로, 우편번호 검색이 끝났을 때, 사용자가 선택한 정보를 받아올 콜백 함수다.
 
