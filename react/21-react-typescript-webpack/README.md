@@ -110,10 +110,10 @@ output: {
 리액트 프로젝트에서 타입스크립트로 작성하기 위해, 다음과 같이 설치를 진행하자.
 
 ```js
-npm install --save-dev typescript awesome-typescript-loader
+npm install --save-dev typescript ts-loader
 ```
 
-웹팩은 일반적으로 javascript 코드만 이해하기 때문에, typescript로 작성된 코드로 작성된 파일을 발견하고, 처리할 수 있도록 하는 awesome-typescript-loader를 설치하자.
+웹팩은 일반적으로 javascript 코드만 이해하기 때문에, typescript로 작성된 코드로 작성된 파일을 발견하고, 처리할 수 있도록 하는 ts-loader를 설치하자.
 
 설치가 완료 되었다면, tsconfig.json파일을 만들어, typescript 사용 환경을 설정해보자.
 
@@ -167,7 +167,7 @@ module.exports = {
     rules: [
       { 
         test: /.tsx?$/, 
-        loader: "awesome-typescript-loader"
+        loader: "ts-loader"
       }
     ]
   }
@@ -268,7 +268,7 @@ module.exports = {
     rules: [
       {
         test: /.tsx?$/,
-        loader: "awesome-typescript-loader"
+        loader: "ts-loader"
       }
     ]
   },
@@ -315,7 +315,55 @@ webpack v5에서 부터 webpack-dev-server 실행 명령어가, webpack serve로
 위와 같이, script 명령어를 변경이 완료 되었다면,
 **npm start** 를 입력하여, 프로젝트를 실행하여, localhost:8080으로 접속해 보자.
 
-만약 개발환경에서 기존 포트 번호 8080에서 다른 번호로 변경하고 싶다면, webpack.config.js 파일에 다음과 같이 추가해야한다.
+만약 localhost:8080으로 접속 했는데 다음과 같은 화면이 보일 수 도 있다.
+
+```js
+Compiled with problems:X
+
+WARNING
+
+configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value.
+Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+```
+
+위와 같은 화면이 보일 때 webpack에서 mode를 추가 해야한다.
+
+#### webpack.config.js
+
+```js
+const path = require("path");
+
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  mode: 'development', //추가
+  entry: "./src/index.tsx",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  output: {
+    path: path.join(__dirname, "/dist"),
+    filename: "bundle.min.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /.tsx?$/,
+        loader: "ts-loader"
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html"
+    })
+  ]
+}
+```
+
+또한, 개발환경에서 기존 포트 번호 8080에서 다른 번호로 변경하고 싶다면, webpack.config.js 파일에 다음과 같이 추가해야한다.
 
 #### webpack.config.js
 
