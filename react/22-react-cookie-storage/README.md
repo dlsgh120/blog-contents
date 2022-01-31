@@ -324,3 +324,7 @@ export default withCookies(CookieComponent);
 ### 마치며
 
 이번 포스트에서는 클라이언트에서 데이터를 관리하는 방법인 쿠키, 로컬스토리지, 세션스토리지에 대한 특징에 대해 알아본 후, 리액트에서 어떻게 사용하는지에 대해 간단히 알아보았다.
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/56
