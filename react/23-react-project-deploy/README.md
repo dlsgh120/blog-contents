@@ -149,3 +149,7 @@ npm run deploy
 ### 마치며
 
 리액트 프로젝트를 Github Pages에 배포하는 방법에 대해 알아보았다.
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/57
