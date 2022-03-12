@@ -134,3 +134,148 @@ Next는 커스텀 서버를 통해 라우트 마스킹을 할 수 있다.
 Next.js 에 대해 알아보았다.
 
 이제 Next.js를 간단하게 세팅 및 사용법에 대해 알아보자.
+
+### Next.js 세팅하기
+
+우선 다음과 같이 Next.js 프로젝트를 설치해보자.
+
+```js
+npx create-next-app react-next-tutorial
+```
+
+react-next-tutorial은 project 이름으로 원하는 이름으로 프로젝트를 생성 하면된다.
+
+프로젝트 생성이 완료 되었다면, **npm run dev** 를 입력하여, 프로젝트를 실행 해보자.
+
+위와 같이 간단하게 next.js 프로젝트를 생성 및 실행 할 수 있다.
+
+많은 사람들이 Typescript로 개발을 하고 있고, 나 또한 Typescript로 개발을 하기에 Next 프로젝트에, Typescript를 적용하는 법에 대해서도 알아보겠다.
+
+우선 root 폴더에 tsconfig.json 을 생성 후, 다시 프로젝트를 실행 한다.
+
+그러면 다음과 같은 오류가 발생 할 것이다.
+
+```js
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+It looks like you"re trying to use TypeScript but do not have the required package(s) installed.
+
+Please install typescript, @types/react, and @types/node by running:
+
+        yarn add --dev typescript @types/react @types/node
+
+t (and any TypeScript files in your pages directory).
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! react-next-tutorial@0.1.0 dev: `next dev`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the react-next-tutorial@0.1.0 dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above. 
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:UserschoiAppDataRoaming
+pm-cache\_logs2021-03-09T12_11_10_608Z-debug.log  
+```
+
+위에 나온 에러와 같이 모듈을 설치해야한다.
+
+```js
+//npm
+npm install --dev typescript @types/react @types/node
+//yarn
+yarn add --dev typescript @types/react @types/node
+```
+
+위와 같이 설치가 완료 되면, 다시 **npm run dev** 를 입력하여 프로젝트를 실행해보자.
+
+그렇다면, 빈 tsconfig.json 파일이 다음과 같이 자동으로 변경 될 것이다.
+
+#### tsconfig.json
+
+```js
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
+```
+
+이제 완료 되었다.
+
+타입스크립트를 적용하여, 간단한 컴포넌트를 만든 후, 실행해 보자.
+
+우선 components 폴더를 만든 후, mainComponent.tsx 파일을 다음과 같이 만들어보자.
+
+#### components/mainComponent.tsx
+
+```js
+import React from "react";
+
+const MainComponent: React.FC = () =>{
+    return(
+        <div>
+            this is nextjs with typescript
+        </div>
+    );
+}
+
+export default MainComponent;
+```
+
+그리고, pages 폴더에 index.js 파일을 index.tsx로 변경한다.
+
+#### pages/index.tsx
+
+```js
+import MainComponent from "../components/mainComponent";
+
+export default function Home() {
+  return (
+      <div>
+          <MainComponent />
+      </div>
+  )
+}
+```
+
+이제 프로젝트를 실행하여, 브라우저에서 확인 해보자.
+
+잘 나올것이다.
+
+정리를 해보자면, Next App은 localhost:3000 경로로 이동되면, React 와 같이 모든 컴포넌트 및 정보들을 불러 온 후, 렌더링이 되는 것이아니고, pages의 폴더의 파일 단위로 페이지가 라우팅 된다.
+
+그렇기에 해당, 경로로 이동 되었을때, 이 화면을 구성할때 필요한 컴포넌트 및 정보만 읽어 오기 때문에, 더 빠른 렌더링이 일어난다.
+
+프로젝트 규모가 커질 수록, 더욱 눈에 띄는 것을 확인 할 수 있을 것이다.
+
+### 마치며
+
+간단하게 리액트의 SSR 프레임워크인 Next.js에 대한 개념, SSR 및 CSR의 차이 및 개념, 그리고 Next.js를 세팅하여 실행하는 방법에 대해 간단히 알아 보았다.
+
+참고자료 : [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
