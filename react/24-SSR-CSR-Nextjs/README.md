@@ -279,3 +279,7 @@ export default function Home() {
 간단하게 리액트의 SSR 프레임워크인 Next.js에 대한 개념, SSR 및 CSR의 차이 및 개념, 그리고 Next.js를 세팅하여 실행하는 방법에 대해 간단히 알아 보았다.
 
 참고자료 : [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/58
