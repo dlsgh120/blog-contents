@@ -189,3 +189,6 @@ export default Blog;
 
 보통 사용하는 방법은 다양하지만 `/post?title=next` 와 같은 쿼리 파라미터 형식은, 검색 할 때 해당 keyword에 대한 리스트들을 구성할 때 사용되며, `/blog/[id]` 와 같은 Pathname 파라미터 형식은, id값에 대한 상세 content를 화면에 보여주도록 할때 사용한다.
 
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/60
