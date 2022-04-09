@@ -407,7 +407,7 @@ const PostDetail = ({data}:{data:Props}) =>{
 }
 export async function getServerSideProps(context){
     const query = context.query;
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${query.id}`);
+     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${query.id}`);
     const data = res.data;
 
     if(!query){
@@ -440,3 +440,7 @@ Static Generation 방식과, Server side rendering 방식을 가지고 있으며
 그렇기에, Static Generation 방식이 Server side rendering 보다 빠르게 동작한다.
 
 만약 데이터가 계속해서 변화가 이루어 진다면 Server side rendering 를 사용하는 것이 올바르며, 데이터가 변하지 않는 정적 페이지 같은 경우는 Static Generation을 사용하는것이 바람직하다.
+
+# 블로그 링크
+
+> https://dlsgh120.tistory.com/61
