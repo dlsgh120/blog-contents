@@ -108,3 +108,102 @@ number과 newNumber의 값이 같을까?
 
 이렇게 원시 값이란, 메모리 상으로 보았을 때 해당 주소에 저장되어 있는 값을 변경 시킬 수 없기에 변경 불가능 한 값(immutable) 이라고 말한다.
 
+원시 타입에 대한 내용을 알아보았으니 이제 참조타입에 대해 알아보자.
+
+### 참조타입
+
+참조타입은 Array, Object, Function 타입으로 구분된다.
+
+### 참조타입의 값
+
+- 참조타입의 값은 변경 가능한 값이다.
+- 참조값을 변수에 할당하면, 변수에는 참조 값이 저장된다.
+
+원시타입에서는, 변수에 값을 할당하면 메모리에서는, 주소와 값이 저장되었지만, 참조타입에서는 주소와, 객체가 저장된 메모리 주소가 저장된다. 이를 참조값이라고 부르는데, 이것 또한 더 쉽게 이해를 하기 위해서 다음과 같이 그림으로 살펴보자
+
+우선 person이라는 변수에, 다음과 같이 object의 타입으로 선언 하였다.
+
+```js
+let person = {
+    name: "choi";
+}
+```
+
+![image](./images/image5.png)
+
+위의 이미지를 보면 원시타입과 다르게 CallStack과 HeapMemory가 추가 된 것을 볼 수 있다. CallStack과 HeapMemory에 대해서는 조금 있다가 알아보자.
+
+우선, person이라는 변수를 위와 같이 선언 하였을 때, 메모리는 이미지와 같이 실행된다.
+
+person이라는 변수가 생성 되었을 때, 0x10이라는 주소에 바로, value가 생성 되는 것이 아니라, heapMemory의 주소를 가르킨다.
+
+여기서 heapMemory는 실제로 person이라는 변수의 데이터를 저장하고 있다.
+
+그렇다면 변경가능한 값이란 무엇을 의미하는 것일까?
+
+코드와 이미지를 보자.
+
+```js
+let person = {
+    name: "choi"
+}
+
+person.name = "park";
+```
+
+![image](./images/image6.png)
+
+이미지를 보면 알 수 있듯이, 원시타입과 다르게 새로운 주소와 값이 생성 되는 것이 아니라, 기존에 할당된 주소의 Value의 값을 바꾸는 것이다.
+
+기존에는 `{name: "choi"}` 에서 `{name: park}` 으로 변경 되었다.
+
+그렇다면 새로운 변수에, person을 할당하여, 기존의 person이라는 변수를 변경하면 어떻게 될까?
+
+```js
+let person = {
+    name: "choi"
+};
+
+let newPerson = person;
+person.name = "park";
+```
+
+![image](./images/image7.png)
+
+이미지를 보자면, newPerson은 person과 같은 주소를 가르키게 되고, Heap Memory에서 person에 대한 새로운 address와 value가 생기는 것이 아니라, 기존의 address에 값을 변경 시키게 되는 것이다.
+
+그러면, person의 값과 newPerson의 값이 같을까?
+
+이에 대한 답을 알아보기 전, 원시타입은 어떻게 동작 하였는가?
+
+위에서도 설명 하였듯이, number와 newNumber이 있고 number의 값만 변경 했을 때에는, 새로운 주소와 값을 가르키게 되어, 이는 값이 다르게 되었다.
+
+하지만, 참조 타입은, 값이 변하게 되어도 새롭게 주소가 생기는 것이 아니고, 기존 주소에 값만 변경되는 것이기 때문에, person과 newPerson의 값이 같게 되는 것이다.
+
+그러면 콘솔로 직접 값을 입력하여, 확인해보자.
+
+```js
+// 원시타입
+let number = 20;
+let newNumber = number;
+number = 30;
+
+console.log(number === newNumber, "number:", number, "newNumber:", newNumber); // false
+
+// 참조타입
+let person = {
+    name: "choi"
+};
+
+let newPerson = person;
+person.name = "park";
+
+console.log(person === newPerson, "person:", person, "newPerson:", newPerson); // true
+```
+
+![image](./images/image8.png)
+
+지금 까지, 자바스크립트의 데이터 타입인 원시타입과 참조타입에 대해 알아 보았다.
+
+그러면, 참조타입에 대한 내용을 들어오면서 메모리에 대한 이미지를 보면, Call Stack과 Heap Memory가 추가 된 것을 볼 수 있는데, 이제 이에 대한 내용을 알아보자.
+
