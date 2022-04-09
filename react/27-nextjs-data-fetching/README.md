@@ -407,7 +407,7 @@ const PostDetail = ({data}:{data:Props}) =>{
 }
 export async function getServerSideProps(context){
     const query = context.query;
-     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${query.id}`);
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${query.id}`);
     const data = res.data;
 
     if(!query){
