@@ -214,3 +214,63 @@ console.log(result); // person: {name: "choi", age: 29}
 그렇기 때문에 기존에 전역변수인 person은 값이 변경되지 않고 그대로 원본의 데이터를 유지하고 있기에 불변성을 유지 했다고 할 수 있다.
 
 #### 3. 1급객체
+
+1급 객체란, 매개변수나 리턴값으로 주고받을 수 있는 객체를 말한다. javascript에서 사용되는 모든 값과 함수는 변수에 저장할 수 있으므로 1급 객체에 해당된다.
+
+- 변수나 데이터 구조안에 담을 수 있다.
+- 파라미터로 전달할 수 있다.
+- return 값으로 사용 할 수 있다.
+
+코드를 살펴보자.
+
+```js
+function increase(num) {
+    return num + 1;
+}
+
+function multiply(num) {
+    return num * 2;
+}
+
+function transform(num) {
+  return num.map(item => {
+      return increase(item);
+  }).map(item => {
+      return multiply(item);
+  });
+}
+
+const calcArray = transform([1,2,3,4]);
+console.log(calcArray); // [4, 6, 8, 10]
+```
+
+위의 코드를 살펴보면, transform이라는 함수에서, map으로 반복을 수행 할 때, return의 값으로 함수를 반환 하기 때문에 1급 객체의 특징을 띄고 있다.
+
+#### 4. 고차 함수 (High Order Function)
+
+1급 객체에서, 함수를 변수에 지정할 수 있다고, 설명 하였다. 이러한 함수를 매개변수로 전달받거나, 리턴값을 함수로 반환할 경우 이를 고차 함수 (High Order Function) 이라 부른다.
+
+- 함수를 인자로써 전달 할 수 있어야 한다.
+- 함수의 반환 값으로 또 다른 함수를 사용할 수 있다.
+
+그렇다면 고차함수에 대한 코드를 살펴보자.
+
+```js
+const addInfo = (name) => {
+     return function (age) {
+         return name + age;
+     }
+}
+const getInfo = addInfo("choi")
+const info = getInfo(28);
+
+console.log(info); // choi28
+```
+
+위와 같이 함수의 반환 값으로, 다른 함수를 사용하거나, 또 다른 함수를 사용할 수 있어야 한다.
+
+### 마치며
+
+이번에는, 함수형 프로그래밍 개발 패러다임에 대한, 개념과 주요 특징 그리고 예제코드를 통해 알아보았으며, 함수형 프로그래밍과의 비교를 통해 객체지향 프로그래밍에 대해서도 간단하게 알아보았다.
+
+이로써 나는 누군가가 "함수형 프로그래밍이 뭐야?" 라고 물어본다면 이제는 위에 설명 한 것 처럼, 내가 공부한 내용에 대해 상세히 알려 줄 수 있을 것 같다.
