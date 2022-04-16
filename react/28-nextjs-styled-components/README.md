@@ -111,7 +111,7 @@ npm install babel-plugin-styled-components
 
 ### styled-components 전역적으로 설정하기
 
-스타일을 전역적으로 설정하기 위해, pages 폴더 내부에 _app.tsx 파일을 만들어 설정 할 수 있습니다.
+스타일을 전역적으로 설정하기 위해, pages 폴더 내부에 _app.tsx 파일을 만들어 설정 할 수 있다.
 
 우선 _app.tsx 파일을 설정하기 전 스타일에 대한 폴더를 생성하여, 전역스타일과 테마에 대해 파일을 생성 할 것이다.
 
